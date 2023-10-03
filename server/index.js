@@ -13,6 +13,14 @@ const { cloudinaryConnect } = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 
+
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', 'https://study-notion-an-ed-tech-platform-seven.vercel.app');
+	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+	res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+	next();
+  });
+
 // Setting up port number
 const PORT = process.env.PORT || 4000;
 
